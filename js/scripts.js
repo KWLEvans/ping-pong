@@ -5,7 +5,11 @@ function pingPong(input) {
     array.push("Please enter a number.");
   } else {
     for (var i = 1; i <= input; i++) {
-      array.push(i);
+      if (i % 3 === 0) {
+        array.push("ping");
+      } else {
+        array.push(i);
+      }
     }
   }
   return array;
