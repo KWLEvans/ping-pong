@@ -1,0 +1,12 @@
+.row {
+  margin-top: 50px;
+}
+
+div#bigPong {
+  height: 400px;
+  width: 400px;
+  background-color: lightgrey;
+  font-size: 5em;
+  text-align: center;
+  padding-top: 140px;
+}

@@ -1,19 +1,23 @@
 //Back-end
+function pingParse(input) {
+  if (input % 3 === 0 && input % 5 === 0) {
+    return "ping-pong";
+  } else if (input % 3 === 0) {
+    return "ping";
+  } else if (input % 5 === 0) {
+    return "pong";
+  } else {
+    return input;
+  }
+}
+
 function pingPong(input) {
   var array = [];
   if (!parseInt(input)) {
     array.push("Please enter a number.");
   } else {
     for (var i = 1; i <= input; i++) {
-      if (i % 3 === 0 && i % 5 === 0) {
-        array.push("ping-pong");
-      } else if (i % 3 === 0) {
-        array.push("ping");
-      } else if (i % 5 === 0) {
-        array.push("pong");
-      } else {
-        array.push(i);
-      }
+      array.push(pingParse(i));
     }
   }
   return array;
@@ -22,18 +26,34 @@ function pingPong(input) {
 
 //Front-end
 $(function() {
+
+  var appends = 0;
+
   function displayInput(nums) {
-    nums.forEach(function(num) {
-      $("#result").append("<li>" + num + "</li>");
-    });
+    function append() {
+      if (appends > 0) {
+        var num = nums.length - appends;
+        $("#result").append("<li>" + nums[num] + "</li>");
+        if (nums[num] !== "Please enter a number.") {
+          $("#bigPong").text(nums[num]);
+        }
+        appends--;
+      } else {
+        clearInterval(id);
+        $("#bigPong").text("");
+      }
+    }
+    var id = setInterval(append, 500);
   }
 
   $("#inputForm").submit(function(event) {
     event.preventDefault();
 
     var input = $("#input").val();
-    console.log(input);
+    $("#input").val("");
+    $("#result").children().remove();
     var pingPongArray = pingPong(input);
+    appends = pingPongArray.length;
 
     displayInput(pingPongArray);
   });
