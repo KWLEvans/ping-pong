@@ -41,7 +41,9 @@ _Any questions, comments, or bug reports can be directed to the repository admin
 
 ## Technologies Used
 
-_HTML/CSS/Bootstrap/JavaScript/jQuery_
+* _HTML_
+* _CSS/Bootstrap_
+* _JavaScript/jQuery_
 
 ### License
 

@@ -1,12 +1,66 @@
+body {
+  color: white;
+  background-color: black;
+  font-family: 'VT323', monospace;
+  font-size: 25px;
+}
+
+.jumbotron {
+  background-color: black;
+  border-bottom: 5px dashed white;
+  text-align: center;
+}
+
+.jumbotron div {
+  background-color: black;
+  color: white;
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 40px;
+  font-size: 4em;
+}
+
+#pings {
+  left: 50px;
+}
+
+#pongs {
+  right: 50px;
+}
+
 .row {
   margin-top: 50px;
+  width: 100vw;
+  height: 60vh;
+}
+
+.btn {
+  background-color: white;
+  color: black;
+  font-size: 1.5em;
+}
+
+input {
+  color: black;
+}
+
+ul {
+  margin-top: 20px;
+  overflow: auto;
+  height: 300px;
 }
 
 div#bigPong {
-  height: 400px;
+  padding-left: 60px;
+  height: 100%;
   width: 400px;
-  background-color: lightgrey;
   font-size: 5em;
   text-align: center;
   padding-top: 140px;
+  border-left: 5px dashed white;
+}
+
+::-webkit-scrollbar {
+  color: red;
 }
