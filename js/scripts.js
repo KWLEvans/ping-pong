@@ -1,8 +1,14 @@
 //Back-end
 function pingPong(input) {
+  var array = [];
   if (!parseInt(input)) {
-    return ["Please enter a number."];
+    array.push("Please enter a number.");
+  } else {
+    for (var i = 1; i <= input; i++) {
+      array.push(i);
+    }
   }
+  return array;
 }
 
 
