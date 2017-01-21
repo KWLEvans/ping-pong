@@ -12,6 +12,7 @@ _This app accepts a number from the user and returns each number up to the input
 
 * _Clone GitHub repository to desktop_
 * _Open index.html in any web browser_
+* _Or view the webpage online [here](http://www.kwlevans.github.io/ping-pong/)_
 
 ## Application Specs
 

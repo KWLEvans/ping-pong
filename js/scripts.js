@@ -1,4 +1,7 @@
+////////////////////////////////////////////////////////////
 //Back-end
+////////////////////////////////////////////////////////////
+
 function pingParse(input) {
   if (input % 3 === 0 && input % 5 === 0) {
     return "ping pong";
@@ -23,28 +26,17 @@ function pingPong(input) {
   return array;
 }
 
-
+////////////////////////////////////////////////////////////
 //Front-end
+////////////////////////////////////////////////////////////
+
 $(function() {
 
   var appends = 0;
   var pings = 0;
   var pongs = 0;
 
-  function updateBigs(input) {
-    $("#bigPong").text(input);
-    $("#pings").text(pings);
-    $("#pongs").text(pongs);
-  }
-
-  function updatePingsPongs(input) {
-    if (input === "ping") {
-      pings++;
-    } else if (input === "pong") {
-      pongs++;
-    } 
-  }
-
+// A home-made loop that allows for delay between appending each li
   function displayInput(nums) {
     function append() {
       if (appends > 0) {
@@ -59,20 +51,41 @@ $(function() {
         clearInterval(id);
         $("#bigPong").text("");
       }
-      $("#result").scroll();
+      scrollDown($("#result"));
     }
-    var id = setInterval(append, 400);
+    var id = setInterval(append, 600);
   }
 
-  $("#result").scroll(function() {
-    var clientHeight = $("#result")[0].clientHeight;
-    var scrollHeight = $("#result")[0].scrollHeight;
-    var scrollTop =  $("#result")[0].scrollTop;
+// Updates bigPong and the pings and pongs score fields
+  function updateBigs(input) {
+    $("#bigPong").text(input);
+    $("#pings").text(pings);
+    $("#pongs").text(pongs);
+  }
+
+// Tallies total pings and pongs
+  function updatePingsPongs(input) {
+    if (input === "ping") {
+      pings++;
+    } else if (input === "pong") {
+      pongs++;
+    } else if (input === "ping pong") {
+      pings++;
+      pongs++;
+    }
+  }
+
+//Automatically scrolls the ul down when a new element is added
+  function scrollDown(input) {
+    var clientHeight = input[0].clientHeight;
+    var scrollHeight = input[0].scrollHeight;
+    var scrollTop =  input[0].scrollTop;
     var isScrolledToBottom = scrollHeight - clientHeight <= scrollTop;
     if (!isScrolledToBottom) {
-       $("#result")[0].scrollTop = scrollHeight - clientHeight;
+      input[0].scrollTop = scrollHeight - clientHeight;
     }
-  });
+  };
+
 
   $("#inputForm").submit(function(event) {
     event.preventDefault();

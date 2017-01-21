@@ -49,10 +49,11 @@ ul {
   margin-top: 20px;
   overflow: auto;
   height: 300px;
+  width: 75%;
 }
 
 div#bigPong {
-  padding-left: 60px;
+  padding-left: 400px;
   height: 100%;
   width: 400px;
   font-size: 5em;
@@ -62,5 +63,32 @@ div#bigPong {
 }
 
 ::-webkit-scrollbar {
-  color: red;
+  background: black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 9px;
+}
+
+@media screen and (max-width: 870px) {
+  .jumbotron div {
+    top: 0px;
+  }
+
+  #pings {
+    left: 10px;
+  }
+
+  #pongs {
+    right: 10px;
+  }
+
+  .col-xs-6 {
+    width: 100vw;
+  }
+
+  div#bigPong {
+    display: none;
+  }
 }
