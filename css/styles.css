@@ -71,7 +71,7 @@ div#bigPong {
   border-radius: 9px;
 }
 
-@media screen and (max-width: 870px) {
+@media screen and (max-width: 1008px) {
   .jumbotron div {
     top: 0px;
   }
